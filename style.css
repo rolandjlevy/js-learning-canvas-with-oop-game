@@ -1,0 +1,14 @@
+#game-area {
+  --game-width: 640;
+  --game-height: 480;
+  border: 1px solid #aaa;
+  background-color: #f3f3f3;
+  width: var(--game-width);
+  height: var(--game-height);
+}
+
+#img-ball {
+  width: 20px;
+  height: 20px;
+  display: none;
+}
