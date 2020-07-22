@@ -10,10 +10,10 @@ class Ball {
   }
   draw(ctx) {
     ctx.drawImage(
-      this.image, 
-      this.position.x, 
-      this.position.y, 
-      this.size, 
+      this.image,
+      this.position.x,
+      this.position.y,
+      this.size,
       this.size
     );
   }
