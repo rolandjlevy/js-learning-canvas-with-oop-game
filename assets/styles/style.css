@@ -1,10 +1,14 @@
 #game-area {
-  --game-width: 640;
-  --game-height: 480;
+  --game-width: 400;
+  --game-height: 300;
   border: 1px solid #aaa;
   background-color: #f3f3f3;
   width: var(--game-width);
   height: var(--game-height);
+}
+
+#game-area:focus {
+  outline: none;
 }
 
 #img-ball {

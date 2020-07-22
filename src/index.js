@@ -1,30 +1,23 @@
+// 27:00 Moving the Ball
 
-// instantiate Canvas
-const canvas = new Canvas('#game-area');
-canvas.clear();
+document.addEventListener('DOMContentLoaded', () => {
+  
+  const canvas = new Canvas('#game-area');
 
-// instantiate Paddle
-const paddle = new Paddle(canvas.width, canvas.height);
-paddle.draw(canvas.ctx);
+  const game = new Game(canvas.width, canvas.height);
+  game.start();
+  
+  let lastTime = 0;
 
-// instantiate Ball
-const ball = new Ball();
+  function gameLoop(timeStamp) {
+    const deltaTime = timeStamp - lastTime;
+    lastTime = timeStamp;
+    canvas.clear();
+    game.update(deltaTime);
+    game.draw(canvas.ctx);
+    requestAnimationFrame(gameLoop);
+  }
 
-// instantiate Input
-new InputHandler(paddle);
-
-let lastTime = 0;
-
-function gameLoop(timeStamp) {
-  canvas.clear();
-  let deltaTime = timeStamp - lastTime;
-  lastTime = timeStamp;
-  paddle.update(deltaTime);
-  paddle.draw(canvas.ctx);
-  ball.draw(canvas.ctx);
   requestAnimationFrame(gameLoop);
-}
 
-requestAnimationFrame(gameLoop);
-
-// got to Moving the Ball, 27:00
+});

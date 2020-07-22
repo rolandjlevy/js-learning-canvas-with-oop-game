@@ -1,13 +1,15 @@
 class Paddle {
-  constructor(gameWidth, gameHeight) {
-    this.gameWidth = gameWidth;
-    this.width = 150;
-    this.height = 30;
+  constructor(game) {
+    this.gameWidth = game.gameWidth;
+    this.gameHeight = game.gameHeight;
+    this.width = 100;
+    this.height = 20;
     this.maxSpeed = 100;
     this.speed = 0;
+    this.color = '#999';
     this.position = {
-      x: gameWidth / 2 - this.width / 2,
-      y: gameHeight - this.height - 10,
+      x: game.gameWidth / 2 - this.width / 2,
+      y: game.gameHeight - this.height - 10,
     }
   }
   moveLeft() {
@@ -20,8 +22,13 @@ class Paddle {
     this.speed = 0;
   }
   draw(ctx) {
-    ctx.fillStyle = 'blue';
-    ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
+    ctx.fillStyle = this.color;
+    ctx.fillRect(
+      this.position.x, 
+      this.position.y, 
+      this.width, 
+      this.height
+    );
   }
   update(deltaTime) {
     this.position.x += this.speed / deltaTime;
