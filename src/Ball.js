@@ -3,8 +3,8 @@ class Ball {
     this.gameWidth = game.gameWidth;
     this.gameHeight = game.gameHeight;
     this.image = document.querySelector(id);
-    this.position = { x: 10, y: 10};
-    this.speed = { x: 5, y: 3};
+    this.position = { x: 10, y: 10 };
+    this.speed = { x: 4, y: 4 };
     this.size = 20;
     this.game = game;
   }

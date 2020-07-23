@@ -1,5 +1,15 @@
 class InputHandler {
   constructor(paddle) {
+    document.addEventListener('touchstart', (e) => {
+      if (e.touches[0].clientX < paddle.position.x + paddle.width / 2) {
+        paddle.moveLeft();
+      } else {
+        paddle.moveRight();
+      }
+    }, false);
+    document.addEventListener('touchend', (e) => {
+      paddle.stop();
+    }, false);
     document.addEventListener('keydown', (e) => {
       switch(e.keyCode) {
         case 37:
@@ -9,7 +19,7 @@ class InputHandler {
           paddle.moveRight();
           break;
       }
-    });
+    }, false);
     document.addEventListener('keyup', (e) => {
       switch(e.keyCode) {
         case 37:
@@ -23,6 +33,6 @@ class InputHandler {
           break;
         }
       }
-    });
+    }, false);
   }
 }
