@@ -1,7 +1,17 @@
 class Game {
-  constructor(gameWidth, gameHeight) {
-    this.gameWidth = gameWidth;
-    this.gameHeight = gameHeight;
+  constructor() {
+  }
+  initCanvas(id) {
+    const canvas = document.querySelector(id);
+    this.ctx = canvas.getContext('2d');
+    this.width = getComputedStyle(canvas).getPropertyValue('--game-width');
+    this.height = getComputedStyle(canvas).getPropertyValue('--game-height');
+    canvas.width = this.width;
+    canvas.height = this.height;
+    canvas.focus();
+  }
+  clearCanvas() {
+    this.ctx.clearRect(0, 0, this.width, this.height);
   }
   start() {
     this.ball = new Ball('#img-ball', this);
@@ -16,7 +26,7 @@ class Game {
   update(deltaTime) {
     this.gameObjects.forEach(obj => obj.update(deltaTime));
   }
-  draw(ctx) {
-    this.gameObjects.forEach(obj => obj.draw(ctx));
+  draw() {
+    this.gameObjects.forEach(obj => obj.draw(this.ctx));
   }
 }

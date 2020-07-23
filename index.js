@@ -2,9 +2,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   
-  const canvas = new Canvas('#game-area');
-
-  const game = new Game(canvas.width, canvas.height);
+  const game = new Game();
+  game.initCanvas('#game-area');
+  game.clearCanvas();
   game.start();
   
   let lastTime = 0;
@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function gameLoop(timeStamp) {
     const deltaTime = timeStamp - lastTime;
     lastTime = timeStamp;
-    canvas.clear();
+    game.clearCanvas();
     game.update(deltaTime);
-    game.draw(canvas.ctx);
+    game.draw(game.ctx);
     requestAnimationFrame(gameLoop);
   }
 

@@ -1,7 +1,7 @@
 class Ball {
   constructor(id, game) {
-    this.gameWidth = game.gameWidth;
-    this.gameHeight = game.gameHeight;
+    this.gameWidth = game.width;
+    this.gameHeight = game.height;
     this.image = document.querySelector(id);
     this.position = { x: 10, y: 10 };
     this.speed = { x: 4, y: 4 };
@@ -33,7 +33,7 @@ class Ball {
     if (ballBottom >= paddleTop 
       && this.position.x >= paddleLeft 
       && this.position.x + this.size <= paddleRight) {
-      this.speed.y = -this.speed.y;
+      this.speed.y = -this.speed.y
       this.position.y = this.game.paddle.position.y - this.size;
     }
   }

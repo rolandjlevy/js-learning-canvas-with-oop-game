@@ -6,4 +6,4 @@
 + [Github repo]()
 
 ### Resources
-+ [Freecodecamp tutorial](https://www.youtube.com/watch?v=3EMxBkqC4z0)
++ Game is based on this [Freecodecamp tutorial](https://www.youtube.com/watch?v=3EMxBkqC4z0)

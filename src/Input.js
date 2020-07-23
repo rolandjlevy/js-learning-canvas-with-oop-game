@@ -1,5 +1,7 @@
 class InputHandler {
   constructor(paddle) {
+    this.keyCodeLeft = 37;
+    this.keyCodeRight = 39;
     document.addEventListener('touchstart', (e) => {
       if (e.touches[0].clientX < paddle.position.x + paddle.width / 2) {
         paddle.moveLeft();
@@ -12,22 +14,22 @@ class InputHandler {
     }, false);
     document.addEventListener('keydown', (e) => {
       switch(e.keyCode) {
-        case 37:
+        case this.keyCodeLeft:
           paddle.moveLeft();
           break;
-        case 39:
+        case this.keyCodeRight:
           paddle.moveRight();
           break;
       }
     }, false);
     document.addEventListener('keyup', (e) => {
       switch(e.keyCode) {
-        case 37:
+        case this.keyCodeLeft:
           if (paddle.speed < 0) {
             paddle.stop();
             break;
           }
-        case 39:
+        case this.keyCodeRight:
         if (paddle.speed > 0) {
           paddle.stop();
           break;
